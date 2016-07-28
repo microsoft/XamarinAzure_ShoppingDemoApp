@@ -6,7 +6,7 @@ Shopping Demo App Overview
 
 Learn how to connect your Xamarin mobile apps to the cloud. The Shopping Demo App is a great business-to-consumer application sample available on multiple platforms. This mobile app demo uses a wide range of Azure services to help users authenticate with Facebook or Twitter, sell and buy personal items, get notifications when items are purchased, and rate the app with a smile. Play with the app code in our GitHub repo, find documentation that shows you how to connect your apps to the cloud, and deploy it to your own Azure subscription now.
 
-Deploy to your subscription&gt;
+[Deploy to your subscription](https://github.com/PlainConcepts/XamarinAzure_ShoppingDemoApp/tree/master/Xamarin.Azure.Backend.Deployment).
 
 | <img src="media/image1.png" width="132" height="257" /> | <img src="media/image2.png" width="224" height="212" /> | <img src="media/image3.png" width="129" height="256" /> |
 |---------------------------------------------------------|---------------------------------------------------------|---------------------------------------------------------|
