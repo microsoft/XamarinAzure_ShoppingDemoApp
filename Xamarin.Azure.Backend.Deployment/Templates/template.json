@@ -1,0 +1,239 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "skuName": {
+      "type": "string",
+      "defaultValue": "F1",
+      "allowedValues": [
+        "F1",
+        "D1",
+        "B1",
+        "B2",
+        "B3",
+        "S1",
+        "S2",
+        "S3",
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "metadata": {
+        "description": "Describes plan's pricing tier and instance size. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/"
+      }
+    },
+    "adminDbLogin": {
+      "type": "string",
+      "metadata": {
+        "description": "Database user name"
+      }
+    },
+    "skuCapacity": {
+      "type": "int",
+      "defaultValue": 1,
+      "minValue": 1,
+      "metadata": {
+        "description": "Describes plan's instance count"
+      }
+    },
+    "adminDbPwd": {
+      "type": "string",
+      "metadata": {
+        "description": "Database user password"
+      }
+    },
+    "databaseName": {
+      "type": "string",
+      "metadata": {
+        "description": "Database name"
+      }
+    },
+    "collation": {
+      "type": "string",
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "edition": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "maxSizeBytes": {
+      "type": "string",
+      "defaultValue": "1073741824"
+    },
+    "requestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "metadata": {
+        "description": "Describes the performance level for Edition"
+      }
+    }
+  },
+  "variables": {
+    "hostingPlanName": "[concat('Xamarin-Azure-Demo-Service-Plan', uniqueString(resourceGroup().id))]",
+    "emotionServiceName": "[concat('Xamarin-Azure-Demo-Service-Emotion', uniqueString(resourceGroup().id))]",
+    "sqlServerName": "[concat('xamarin-azure-demo-service-sql', uniqueString(resourceGroup().id))]",
+    "mobileSiteName": "[concat('Xamarin-Azure-Demo-Service-Mobile', uniqueString(resourceGroup().id))]",
+    "diagnosticsName": "[concat('Xamarin-Azure-Demo-Service-Diagnostics', uniqueString(resourceGroup().id))]",
+    "notificationHubNamespace": "[concat('Xamarin-Azure-Demo-Service-Namespace', uniqueString(resourceGroup().id))]",
+    "notificationHubName": "[concat('Xamarin-Azure-Demo-Service-Hub', uniqueString(resourceGroup().id))]",
+    "storageAccountName": "[concat('xamarindemo', uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('emotionServiceName')]",
+      "type": "Microsoft.CognitiveServices/accounts",
+      "sku": {
+        "name": "S0"
+      },
+      "kind": "Emotion",
+      "apiVersion": "2016-02-01-preview",
+      "location": "westus",
+      "properties": {
+        "endpoint": "https://api.projectoxford.ai/emotion/v1.0"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2014-04-01-preview",
+      "kind": "v12.0",
+      "location": "[resourceGroup().location]",
+      "name": "[variables('sqlServerName')]",
+      "properties": {
+        "administratorLogin": "[parameters('adminDbLogin')]",
+        "administratorLoginPassword": "[parameters('adminDbPwd')]"
+      },
+      "resources": [
+        {
+          "name": "[parameters('databaseName')]",
+          "type": "databases",
+          "apiVersion": "2014-04-01-preview",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "edition": "[parameters('edition')]",
+            "collation": "[parameters('collation')]",
+            "maxSizeBytes": "[parameters('maxSizeBytes')]",
+            "requestedServiceObjectiveName": "[parameters('requestedServiceObjectiveName')]"
+          },
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('sqlServerName'))]"
+          ]
+        },
+        {
+          "type": "firewallrules",
+          "name": "AllowAllWindowsAzureIps",
+          "apiVersion": "2014-04-01-preview",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "startIpAddress": "0.0.0.0",
+            "endIpAddress": "0.0.0.0"
+          },
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('sqlServerName'))]"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "sku": {
+        "name": "[parameters('skuName')]",
+        "capacity": "[parameters('skuCapacity')]"
+      },
+      "name": "[variables('hostingPlanName')]",
+      "apiVersion": "2015-08-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "name": "[variables('hostingPlanName')]"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "kind": "mobileapp",
+      "name": "[variables('mobileSiteName')]",
+      "apiVersion": "2015-08-01",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]": "empty"
+      },
+      "properties": {
+        "name": "[variables('mobileSiteName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+      ],
+      "resources": [
+        {
+          "apiVersion": "2015-08-01",
+          "type": "config",
+          "name": "connectionstrings",
+          "dependsOn": [
+            "[concat('Microsoft.Web/Sites/', variables('mobileSiteName'))]"
+          ],
+          "properties": {
+            "MS_TableConnectionString": {
+              "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('adminDbLogin'), '@', variables('sqlserverName'), ';Password=', parameters('adminDbPwd'), ';')]",
+              "type": "SQLServer"
+            },
+            "MS_NotificationHubConnectionString": {
+              "value": "[listkeys(resourceId('Microsoft.NotificationHubs/namespaces/notificationHubs/authorizationRules', variables('notificationHubNamespace'), variables('notificationHubName'), 'DefaultFullSharedAccessSignature'), '2014-09-01').primaryConnectionString]",
+              "type": "Custom"
+            },
+            "MS_AzureStorageAccountConnectionString": {
+              "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'),';AccountKey=', listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]",
+              "type": "Custom"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "apiVersion": "2014-09-01",
+      "kind": "NotificationHub",
+      "location": "[resourceGroup().location]",
+      "name": "[variables('notificationHubNamespace')]",
+      "properties": {
+        "namespaceType": "NotificationHub"
+      },
+      "resources": [
+        {
+          "apiVersion": "2014-09-01",
+          "type": "Microsoft.NotificationHubs/namespaces/notificationHubs",
+          "name": "[concat(variables('notificationHubNamespace'), '/', variables('notificationHubName'))]",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[concat('Microsoft.NotificationHubs/namespaces/', variables('notificationHubNamespace'))]"
+          ]
+        }
+      ],
+      "tags": {},
+      "type": "Microsoft.NotificationHubs/namespaces"
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "sku": {
+        "name": "Standard_RAGRS",
+        "tier": "Standard"
+      },
+      "kind": "Storage",
+      "name": "[variables('storageAccountName')]",
+      "apiVersion": "2016-01-01",
+      "location": "[resourceGroup().location]"
+    }
+  ]
+}

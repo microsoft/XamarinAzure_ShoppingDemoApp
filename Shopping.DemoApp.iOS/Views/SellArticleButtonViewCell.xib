@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" customClass="SellArticleButtonViewCell" id="cZE-iV-UFb">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" id="2" translatesAutoresizingMaskIntoConstraints="NO" hasAttributedTitle="YES" userInteractionEnabled="NO">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="60"/>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.88235294117647056" green="0.066666666666666666" blue="0.5490196078431373" alpha="1"/>
+                        <color key="tintColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                        <state key="normal" image="box_icon.png">
+                            <attributedString key="attributedTitle">
+                                <fragment content="SELL AN ITEM">
+                                    <attributes>
+                                        <font key="NSFont" name="HelveticaNeue" size="11"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                        </state>
+                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                        <inset key="titleEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="1" maxY="0.0"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint id="3" firstItem="2" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="top"/>
+                <constraint id="4" firstItem="2" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leading"/>
+                <constraint id="5" firstItem="cZE-iV-UFb" firstAttribute="trailing" secondItem="2" secondAttribute="trailing"/>
+                <constraint id="6" firstItem="cZE-iV-UFb" firstAttribute="bottom" secondItem="2" secondAttribute="bottom"/>
+            </constraints>
+            <connections>
+                <outlet property="SellButton" destination="2" id="name-outlet-2"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="logo.png" width="320" height="44"/>
+        <image name="triangle.png" width="64" height="32"/>
+        <image name="box_icon.png" width="45" height="52"/>
+        <image name="facde_guide.png" width="519" height="404"/>
+        <image name="icon_photo.png" width="236" height="236"/>
+        <image name="icon_photo_pressed.png" width="236" height="236"/>
+        <image name="star_empty.png" width="58" height="55"/>
+        <image name="star_full.png" width="58" height="55"/>
+        <image name="logo_splash.png" width="665" height="296"/>
+    </resources>
+</document>

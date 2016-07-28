@@ -1,0 +1,11 @@
+// GET ALL ITEMS
+curl -X GET -H "ZUMO-API-VERSION: 2.0.0" YOUR_API_ADDRESS/tables/SaleItem
+
+// GET SINGLE ITEM
+curl -X GET -H "ZUMO-API-VERSION: 2.0.0" YOUR_API_ADDRESS/tables/SaleItem/59C25A3C-0059-4275-8CD2-83ED914DFEFA
+
+// ADD ITEM
+curl -X POST -H "ZUMO-API-VERSION: 2.0.0" -H "Content-Type: application/json" -d "{\"name\":\"ADDED Article\",\"description\":\"Article description\",\"price\": 10.0}" YOUR_API_ADDRESS/tables/SaleItem
+
+// BUY ITEM
+curl -X POST -H "ZUMO-API-VERSION: 2.0.0" -H "Content-Type: application/json" -d "{\"id\": \"59C25A3C-0059-4275-8CD2-83ED914DFEFA\", \"name\":\"ADDED Article\",\"description\":\"Article description\",\"price\": 10.0}" YOUR_API_ADDRESS/api/buy

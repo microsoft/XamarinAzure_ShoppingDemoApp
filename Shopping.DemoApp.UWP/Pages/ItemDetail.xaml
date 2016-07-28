@@ -1,0 +1,123 @@
+﻿<Page x:Class="Shopping.DemoApp.UWP.Pages.ItemDetail"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:Shopping.DemoApp.UWP.Pages"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      x:Name="Page">
+
+    <Grid Background="{StaticResource HomeBackgroundColorBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+
+        </Grid.RowDefinitions>
+        <Border Background="{StaticResource ShoppingDemoAppDarkBlueColorBrush}"
+                Padding="10,0,10,10"
+                Grid.Row="0">
+            <Image Source="/Resources/logo.png"
+                   Stretch="Uniform"
+                   Height="42" />
+        </Border>
+        <ScrollViewer x:Name="RootScrollViewer"
+                      Background="{StaticResource ShoppingDemoAppDarkBlueColorBrush}"
+                      Grid.Row="1"
+                      VerticalScrollBarVisibility="Hidden"
+                      VerticalScrollMode="Enabled"
+                      HorizontalScrollBarVisibility="Hidden"
+                      HorizontalScrollMode="Disabled"
+                      HorizontalAlignment="Stretch"
+                      HorizontalContentAlignment="Stretch"
+                      VerticalContentAlignment="Stretch">
+            <Grid HorizontalAlignment="Stretch"
+                  Padding="0"
+                  Background="{StaticResource HomeBackgroundColorBrush}"
+                  Width="{Binding ElementName=RootScrollViewer, Path=ActualWidth}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+
+                </Grid.RowDefinitions>
+                <Image x:Name="imageItem" Source="{Binding ImageUrl, FallbackValue=/Resources/DefaultValues/img_bike_full.png}"
+                       Stretch="Uniform"
+                       HorizontalAlignment="Stretch"
+                       Grid.Row="0" />
+                <Grid x:Name="grid"
+                      Grid.Row="1"
+                      HorizontalAlignment="Stretch"
+                      Margin="20,0,20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="textBlock"
+                               Text="{Binding Name, FallbackValue=SECOND HAND BIKE}"
+                               Margin="0,0,0,3"     
+                               TextTrimming="CharacterEllipsis"
+                               Foreground="{StaticResource ShoppingDemoAppDarkBlueColorBrush}"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Bottom"
+                               FontSize="20" />
+                    <StackPanel   Grid.Column="1"
+                                  Grid.Row="0"
+                                  Orientation="Horizontal">
+                        <TextBlock Text="$"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Right"
+                                   Foreground="{StaticResource ShoppingDemoAppPinkColorBrush}"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,4"/>
+                        <TextBlock Text="{Binding Price, FallbackValue=45, Converter={StaticResource ToCurrencyConverter}}"
+                               VerticalAlignment="Bottom"
+                             
+                               HorizontalAlignment="Right"
+                               Foreground="{StaticResource ShoppingDemoAppPinkColorBrush}"
+                               FontSize="36"
+                               FontWeight="Bold" />
+                    </StackPanel>
+                    <Line 
+                        Margin="0,0,0,0"
+                        Grid.Row="1"
+                          Grid.ColumnSpan="2"
+                          X1="0"
+                          X2="{Binding ActualWidth , ElementName=grid}"
+                          StrokeThickness="1" 
+                          VerticalAlignment="Bottom"
+                          Stroke="{StaticResource ShoppingDemoAppLigthCyanColorBrush}" />
+                    <TextBlock Grid.Row="2"
+                               Grid.ColumnSpan="2"
+                               Text="{Binding Description, FallbackValue='Lorem ipsum dolor sit amet\, consectetur adipiscing elit. Cras euismod elit tortor\, at pretium mauris commodo vel. Sed eget eleifend nulla. Praesent et finibus erat. Aliquam hendrerit ante sed leo blandit condimentum. Duis mattis ipsum sapien\, in semper tellus finibus non. Cras consectetur urna lorem\, quis feugiat orci luctus eget. Fusce ac diam quam. Fusce feugiat lacinia orci\, et gravida tellus vulputate vitae. Aliquam at ultricies dui. Sed imperdiet enim in libero porta\, id condimentum odio rhoncus. Etiam et tincidunt augue.   Praesent vulputate mollis ipsum vitae sagittis. Maecenas tristique lacus at nisi posuere\, sit amet vulputate ipsum feugiat. Nunc ultricies egestas eros at condimentum. Fusce quis nulla maximus velit vestibulum cursus sed dignissim ipsum. In rutrum erat a quam congue consectetur. Maecenas egestas metus mauris\, a porttitor velit venenatis a. Mauris vel elit tempus\, consequat velit porta\, malesuada elit. Maecenas ac aliquam felis. Etiam ultricies tortor id viverra venenatis. Proin eleifend malesuada eros\, consectetur vestibulum nibh dictum ac. Cras lobortis tortor tortor\, semper ornare tortor venenatis quis. Cras et hendrerit arcu. Vestibulum finibus feugiat nunc\, et condimentum justo rutrum ac.  '}"
+                               TextWrapping="Wrap"
+                               Foreground="{StaticResource ShoppingDemoAppLigthCyanColorBrush}"
+                               TextAlignment="Left"
+                               Margin="0,20,0,0"
+                               FontSize="16" />
+
+                </Grid>
+                
+            </Grid>
+        </ScrollViewer>
+        <Button x:Name="BuyButton"
+            Grid.Row="2"
+                Background="{StaticResource ShoppingDemoAppPinkColorBrush}"
+                HorizontalAlignment="Stretch"
+                Click="BuyButton_Click">
+            <TextBlock Text="BUY"
+                       VerticalAlignment="Center"
+                       Margin="0,15"
+                       FontSize="11"
+                       FontWeight="Normal"
+                       Foreground="{StaticResource ShoppingDemoAppWhiteBrush}" />
+        </Button>
+    </Grid>
+</Page>

@@ -1,0 +1,16 @@
+*.bak
+*.orig
+*.suo
+**/packages_*.config
+**/UpgradeLog.htm
+**/.vs/**
+**/bin/**
+**/obj/**
+**/packages/**
+*.user
+**/PublishProfiles/*.pubxml
+*.userprefs
+*.nuget.targets
+*.nuget.props
+*.lock.json
+

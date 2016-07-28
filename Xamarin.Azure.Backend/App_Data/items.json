@@ -1,0 +1,38 @@
+﻿[
+  {
+    "Id": "59C25A3C-0059-4275-8CD2-83ED914DFEFA",
+    "Name": "Second Hand Bike",
+    "Description": "Bicycle is a five speed, and is in good condition. You can enjoy riding both on and off-road.",
+    "Price": 45.5
+  },
+  {
+    "Id": "C9BB0308-549A-4EA1-A1BC-74D7A84EB79D",
+    "Name": "Lounge chair",
+    "Description": "This lovely, charcoal lounge chair is perfect for small apartments. Highly recommended for an extra seating area.",
+    "Price": 270.0
+  },
+  {
+    "Id": "F366EBB2-6D7D-4E09-A4F2-DF16819F6302",
+        "Name": "Fashionable Red Chair",
+    "Description": "Great quality! It has an antique style, with a modern flare. Fits perfectly in a living room, bedroom, lounge and etc.",
+    "Price": 76.0
+  },
+  {
+    "Id": "048C7F59-9892-4997-9FCD-CA59671CD178",
+    "Name": "New Handbag",
+    "Description": "New leather handbag. It was a birthday present and I have never used it.",
+    "Price": 99.99
+  },
+  {
+    "Id": "6C1FD805-A729-4992-B8B3-FD2CEA12E07E",
+    "Name": "Purple Bookcase",
+    "Description": "Classic bookcase that can hold multiple objects.",
+    "Price": 5200.0
+  },
+  {
+    "Id": "CC02798E-CDF1-4376-B2F3-9B914D0A119D",
+    "Name": "Smart watch",
+    "Description": "Brand new smart watches! Get your own!",
+    "Price": 150.0
+  }
+]
