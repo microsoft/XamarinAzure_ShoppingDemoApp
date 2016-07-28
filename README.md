@@ -8,8 +8,8 @@ Learn how to connect your Xamarin mobile apps to the cloud. The Shopping Demo Ap
 
 [Deploy to your subscription](https://github.com/Microsoft/XamarinAzure_ShoppingDemoApp/tree/master/Xamarin.Azure.Backend.Deployment).
 
-| <img src="media/image1.png" width="132" height="257" /> | <img src="media/image2.png" width="224" height="212" /> | <img src="media/image3.png" width="129" height="256" /> |
-|---------------------------------------------------------|---------------------------------------------------------|---------------------------------------------------------|
+<img src="media/image1.png" width="132" height="257" /> <img src="media/image2.png" width="224" height="212" /> <img src="media/image3.png" width="129" height="256" /> 
+
 
 App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. It allows to create mobile apps for any platform or device. You can integrate your apps with several SaaS solutions as Authentication, Push Notifications, Storage, etc.
 
