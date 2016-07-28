@@ -15,14 +15,14 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. It al
 
 The following tutorials explain how to work with App Service and show you quickly and easily use several App Service features based on the Shopping Demo App available on GitHub
 
--   Authenticate and authorize users with Twitter and Facebook
+-   [Authenticate and authorize users with Twitter and Facebook](https://github.com/PlainConcepts/XamarinAzure_ShoppingDemoApp/wiki/Authentication-Authorization)
 
--   Allow your app to work offline and sync after
+-   [Allow your app to work offline and sync after](https://github.com/PlainConcepts/XamarinAzure_ShoppingDemoApp/wiki/Offline-Data-Sync)
 
--   Send and receive push notifications on iOS, Android, and Windows
+-   [Send and receive push notifications on iOS, Android, and Windows](https://github.com/PlainConcepts/XamarinAzure_ShoppingDemoApp/wiki/Push-Notifications)
 
--   Store your app data in the cloud
+-   [Store your app data in the cloud](https://github.com/PlainConcepts/XamarinAzure_ShoppingDemoApp/wiki/Storage)
 
--   Use Microsoft Cognitive Services to personalize your app’s responses
+-   [Use Microsoft Cognitive Services to personalize your app’s responses](https://github.com/PlainConcepts/XamarinAzure_ShoppingDemoApp/wiki/Cognitive-Services)
 
 For more information, please visit <http://azure.com/xamarin>
