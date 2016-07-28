@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5k-f2-b5h">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gAE-YM-kbH">
+            <objects>
+                <viewController id="X5k-f2-b5h" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y8P-hJ-Z43"/>
+                        <viewControllerLayoutGuide type="bottom" id="9ZL-r4-8FZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="45" translatesAutoresizingMaskIntoConstraints="NO" image="logo_splash.png">
+                                <rect key="frame" x="60" y="16" width="480" height="568"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="1"/>
+                                <constraints>
+                                    <constraint id="50" firstAttribute="width" secondItem="45" secondAttribute="height" multiplier="125:148"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.00392156862745098" green="0.12156862745098039" blue="0.30980392156862746" alpha="1"/>
+                        <constraints>
+                            <constraint id="46" firstItem="yd7-JS-zBw" firstAttribute="centerY" secondItem="45" secondAttribute="centerY"/>
+                            <constraint id="47" firstItem="yd7-JS-zBw" firstAttribute="centerX" secondItem="45" secondAttribute="centerX"/>
+                            <constraint id="49" firstItem="45" firstAttribute="width" secondItem="yd7-JS-zBw" secondAttribute="width" multiplier="0.6"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-xm-WK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349" y="339"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="box_icon.png" width="45" height="52"/>
+        <image name="facde_guide.png" width="519" height="404"/>
+        <image name="icon_photo.png" width="236" height="236"/>
+        <image name="icon_photo_pressed.png" width="236" height="236"/>
+        <image name="logo.png" width="320" height="44"/>
+        <image name="star_empty.png" width="58" height="55"/>
+        <image name="star_full.png" width="58" height="55"/>
+        <image name="triangle.png" width="64" height="32"/>
+        <image name="logo_splash.png" width="665" height="296"/>
+    </resources>
+    <color key="tintColor" colorSpace="calibratedRGB" red="0.00392156862745098" green="0.12156862745098039" blue="0.30980392156862746" alpha="1"/>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination" type="retina47"/>
+    </simulatedMetricsContainer>
+</document>

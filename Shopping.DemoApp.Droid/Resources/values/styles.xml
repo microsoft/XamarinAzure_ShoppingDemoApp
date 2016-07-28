@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="MyTheme.Base" parent="Theme.AppCompat">
+
+      <item name="android:colorPrimary">@color/darkblue</item>
+      <item name="android:colorPrimaryDark">@color/darkblue</item>
+      <item name="android:colorAccent">@color/darkblue</item>
+
+      <item name="colorAccent">@color/darkblue</item>
+
+      <item name="android:navigationBarColor">@color/darkblue</item>
+      <item name="android:windowBackground">@color/darkblue</item>
+
+      <item name="android:windowNoTitle">true</item>
+      <item name="android:windowActionBar">false</item>
+
+      <item name="windowNoTitle">true</item>
+      <item name="windowActionBar">false</item>
+
+      <item name="android:textColorHint">@color/darkblue</item>
+      <item name="colorControlActivated">@color/pink</item>
+
+      <item name="colorControlNormal">@color/blueDescription</item>
+
+    </style>
+
+
+  <style name="TextAppearence.App.TextInputLayout" parent="@android:style/TextAppearance">
+      <item name="android:textColor">@color/pink</item>
+      <item name="android:textSize">11sp</item>
+  </style>
+  
+    <style name="MyTheme" parent="MyTheme.Base">
+    </style>
+
+</resources>

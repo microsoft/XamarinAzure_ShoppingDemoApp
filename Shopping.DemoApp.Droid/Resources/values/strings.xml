@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="buttonTitle">SELL AN ITEM</string>
+	<string name="buttonBuy">BUY</string>
+	<string name="buttonRepeatPhoto">RETAKE PHOTO</string>
+	<string name="buttonSubmitRating">SUBMIT RATING</string>
+	<string name="buttonAdd">ADD ITEM</string>
+
+    <string name="textAddPhoto">ADD PHOTO</string>
+    <string name="textSellTitle">WHAT DO YOU WANT TO SELL?</string>
+    <string name="textSellDesc">HOW IS THE CONDITION?</string>
+    <string name="textPrice">WHAT IS THE PRICE?</string>
+</resources>

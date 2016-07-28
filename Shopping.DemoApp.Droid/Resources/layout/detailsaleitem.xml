@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+  <include layout="@layout/header" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:background="@color/grey"
+        android:layout_marginBottom="60dp">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1">
+            <ImageView
+                android:id="@+id/img"
+                android:src="@drawable/designmg"
+                android:layout_height="300dp"
+                android:layout_width="fill_parent"
+                android:scaleType="centerCrop" />
+            <RelativeLayout
+                android:layout_below="@id/img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/textTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="SECOND HAND BIKE"
+                    android:layout_toLeftOf="@+id/priceLayout"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/darkblue"
+                    android:textStyle="bold"
+                    android:textSize="23sp" />
+
+                <LinearLayout
+                    android:id="@+id/priceLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_alignBottom="@+id/textTitle">
+
+                    <TextView
+                        android:id="@+id/textPriceCurrency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$"
+                        android:textColor="@color/pink"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/textPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="45"
+                        android:textColor="@color/pink"
+                        android:textSize="27sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewDecimals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=".00"
+                        android:textColor="@color/pink"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/blueDescription"
+                    android:id="@+id/separator"
+                    android:layout_below="@+id/textTitle"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp" />
+
+                <TextView
+                    android:layout_below="@id/textTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Bycicle is in good condition. It has five speed settings that will make you enjoy riding at any place. More textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore textMore text"
+                    android:ellipsize="end"
+                    android:textColor="@color/blueDescription"
+                    android:id="@+id/itemDescription" />
+            </RelativeLayout>
+        </TableLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/pink"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:text="@string/buttonBuy"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:id="@+id/buyButton" />
+    </RelativeLayout>
+
+</RelativeLayout>
+</LinearLayout>

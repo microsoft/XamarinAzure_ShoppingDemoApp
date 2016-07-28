@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+  <include layout="@layout/header" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue">
+
+    <RelativeLayout
+    android:id="@+id/infotitle"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/darkblue"
+    android:gravity="center"
+    android:layout_centerHorizontal="true">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/white"
+          android:layout_marginLeft="40dp"
+          android:layout_marginRight="40dp"
+          android:id="@+id/infotitletext"
+          android:text="Smile if you like our app! Align your face to the silhouette and take a photo." />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+      android:id="@+id/cameraplaceholder"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:layout_below="@id/infotitle" />
+
+    <ImageView
+        android:id="@+id/gradient"
+        android:src="@drawable/gradient_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/infotitle"
+        android:scaleType="fitXY"
+        android:layout_alignTop="@+id/smilepattern" />
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="?attr/selectableItemBackground"
+        android:src="@drawable/icon_photo"
+        android:layout_alignBottom="@id/cameraplaceholder"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/takephotoview" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/facde_guide"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/infotitle"
+        android:id="@+id/smilepattern"
+        android:layout_above="@+id/takephotoview"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="30dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:id="@+id/postbuttons">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/darkpink">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:background="?attr/selectableItemBackground"
+                android:id="@+id/repeatphotoview">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buttonRepeatPhoto"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/pink">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:background="?attr/selectableItemBackground"
+                android:id="@+id/submitratingview">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buttonSubmitRating"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/overlay"
+        android:background="@color/black"
+        android:alpha="0.4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/infotitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="description"
+        android:textColor="@color/white"
+        android:id="@+id/infodescription"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/takephotoview"
+        android:layout_marginBottom="50dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="description"
+        android:textColor="@color/white"
+        android:id="@+id/stars"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/takephotoview"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginRight="90dp"></RelativeLayout>
+
+</RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?attr/selectableItemBackground">
+    <ImageView
+        android:id="@+id/imgThumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:src="@drawable/designmg"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="false"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+    <ImageView
+        android:src="@drawable/triangle"
+        android:layout_height="12dp"
+        android:layout_width="24dp"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="30dp"
+        android:layout_alignBottom="@+id/imgThumbnail"/>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/imgThumbnail"
+        android:background="@color/white">
+           <TextView
+               android:id="@+id/displayName"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="12sp"
+               android:textColor="@color/darkblue"
+               android:text="SECOND HAND BIKE"
+               android:layout_marginLeft="10dp"
+               android:layout_marginTop="10dp"
+               android:layout_toLeftOf="@+id/priceCurrency"
+               android:layout_alignParentStart="true"
+               android:layout_alignParentLeft="true"
+               android:singleLine="true"
+               android:maxLines="1"
+               android:textStyle="bold" />
+           <TextView
+               android:id="@+id/description"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="9sp"
+               android:lines="2"
+               android:textColor="@color/blueDescription"
+               android:text="Bycicle is in good condition. It has five speed settings that will make you enjoy riding at any place. More textMore textMore textMore textMore textMore textMore text"
+               android:layout_below="@+id/displayName"
+               android:layout_alignLeft="@+id/displayName"
+               android:layout_alignRight="@+id/displayName"
+               android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/priceCurrency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:text="$"
+                android:textColor="@color/pink"
+                android:layout_toLeftOf="@+id/price"
+                android:layout_marginLeft="10dp"
+                android:layout_alignBaseline="@+id/price"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="405"
+                android:textColor="@color/pink"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textStyle="bold" />
+
+    </RelativeLayout>
+</RelativeLayout>
