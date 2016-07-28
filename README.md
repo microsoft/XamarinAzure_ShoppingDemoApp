@@ -19,7 +19,7 @@ The following tutorials explain how to work with App Service and show you quickl
 
 -   Allow your app to work offline and sync after
 
--   push notifications on
+-   Send and receive push notifications on iOS, Android, and Windows
 
 -   Store your app data in the cloud
 
