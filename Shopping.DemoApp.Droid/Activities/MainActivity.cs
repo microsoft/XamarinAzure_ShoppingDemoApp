@@ -84,6 +84,26 @@ namespace Shopping.DemoApp.Droid.Activities
             refreshData = true;
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            //change main_compat_menu
+            MenuInflater.Inflate(Resource.Menu.menu_home, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_refresh:
+                    PopulateWithData().ContinueWith((e) => { refreshData = false; });
+                    break;
+            }
+            return base.OnOptionsItemSelected(item);
+        }
+
         private void Initialize()
         {
             UserDialogs.Init(this);

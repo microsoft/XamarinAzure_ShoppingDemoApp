@@ -20,7 +20,6 @@ namespace Shopping.DemoApp.iOS
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
-            SQLitePCL.CurrentPlatform.Init();
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 
             // followed steps from https://azure.microsoft.com/en-us/documentation/articles/xamarin-notification-hubs-ios-push-notification-apns-get-started/
@@ -45,6 +44,8 @@ namespace Shopping.DemoApp.iOS
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
+            return;
+
             notificationHub = new SBNotificationHub(AppSettings.NotificationHubConnectionString, AppSettings.NotificationHubPath);
 
             notificationHub.UnregisterAllAsync(deviceToken, (error) => {

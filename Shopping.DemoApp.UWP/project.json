@@ -1,16 +1,17 @@
 ﻿{
   "dependencies": {
-    "Acr.UserDialogs": "5.3.0",
+    "Acr.UserDialogs": "6.2.6",
     "Microsoft.ApplicationInsights": "1.0.0",
     "Microsoft.ApplicationInsights.PersistenceChannel": "1.0.0",
     "Microsoft.ApplicationInsights.WindowsApps": "1.0.0",
-    "Microsoft.Azure.Mobile.Client.SQLiteStore": "2.0.1",
-    "Microsoft.Data.Edm": "5.7.0",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-    "Microsoft.ProjectOxford.Emotion": "1.0.310",
+    "Microsoft.Azure.Mobile.Client.SQLiteStore": "3.0.3",
+    "Microsoft.Data.Edm": "5.8.0",
+    "Microsoft.Data.Services.Client": "5.8.0",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+    "Microsoft.ProjectOxford.Emotion": "1.0.331.1",
     "Newtonsoft.Json": "9.0.1",
     "PCLStorage": "1.0.2",
-    "SQLitePCL": "3.8.7.2",
+    "SQLitePCLRaw.bundle_green": "1.1.0",
     "WindowsAzure.Messaging.Managed": "0.1.7.9"
   },
   "frameworks": {

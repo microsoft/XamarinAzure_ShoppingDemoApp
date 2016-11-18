@@ -52,6 +52,12 @@ namespace Shopping.DemoApp.iOS.Controllers
 			{
 				ForegroundColor = UIColor.White
 			};
+
+            NavigationItem.RightBarButtonItem = 
+                new UIBarButtonItem(UIBarButtonSystemItem.Refresh, async delegate
+            {
+                await LoadSaleItems();
+            });
         }
 
         private async Task InitializeCollectionView()

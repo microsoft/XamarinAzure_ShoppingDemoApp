@@ -62,12 +62,29 @@
             return await this.saleItemsTable.OrderByDescending(c => c.CreatedAt).ToEnumerableAsync();
         }
 
+        public async Task SyncSaleItems()
+        {
+            try
+            {
+                await MobileService.SyncContext.PushAsync();
+                await saleItemsTable.PushFileChangesAsync();
+
+                await saleItemsTable.PullAsync("allSaleItems", this.saleItemsTable.CreateQuery());
+            }
+
+            catch (Exception e)
+            {
+                Debug.WriteLine(@"Sync Failed: {0}", e.Message);
+            }
+        }
+
+
         public async Task AddItemAsync(SaleItem item, string imagePath)
         {
-            await this.saleItemsTable.InsertAsync(item);
+            await saleItemsTable.InsertAsync(item);
 
             string targetPath = await FileHelper.CopySaleItemFileAsync(item.Id, imagePath);
-            await this.saleItemsTable.AddFileAsync(item, Path.GetFileName(targetPath));
+            await saleItemsTable.AddFileAsync(item, Path.GetFileName(targetPath));
 
             await SyncSaleItems();
         }
@@ -79,39 +96,7 @@
             return files.FirstOrDefault();
         }
 
-        public async Task SyncSaleItems()
-        {   
-            try
-            {
-                await this.MobileService.SyncContext.PushAsync();
-                await this.saleItemsTable.PushFileChangesAsync();
-
-                await this.saleItemsTable.PullAsync("allSaleItems", this.saleItemsTable.CreateQuery());
-            }
-#if __ANDROID__
-            catch (Exception e)
-            {
-                Console.Error.WriteLine(@"Sync Failed: {0}", e.Message);
-            }
-
-#elif __IOS__
-            catch (MobileServiceInvalidOperationException e)
-            {
-                Console.Error.WriteLine(@"Sync Failed: {0}", e.Message);
-            }
-#elif WINDOWS_UWP
-            catch (Exception e)
-            {
-                Debug.WriteLine($"Sync Failed: {e.Message}");
-            }
-#else
-            catch (Exception e)
-            {
-                Console.Error.WriteLine(@"Sync Failed: {0}", e.Message);
-            }
-#endif
-        }
-
+        
         public async Task BuySaleItemAsync(SaleItem item)
         {
             try
@@ -123,12 +108,7 @@
                     await UserDialogs.Instance.AlertAsync("Thanks for buying this item");
                 }
             }
-#if __IOS__
-            catch (MobileServiceInvalidOperationException e)
-            {
-                Console.Error.WriteLine(@"API invoking Failed: {0}", e.Message);
-            }
-#endif
+
             catch (Exception e)
             {
                 Debug.WriteLine(@"Unexpected error {0}", e.Message);
