@@ -1,10 +1,12 @@
 ﻿namespace Shopping.DemoApp.UWP
 {
     using System;
+    using System.Diagnostics;
     using Windows.ApplicationModel;
     using Windows.ApplicationModel.Activation;
     using Windows.Foundation.Metadata;
     using Windows.UI;
+    using Windows.UI.Core;
     using Windows.UI.ViewManagement;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
@@ -83,14 +85,25 @@
 
         private void SubscribeButtonsEvents()
         {
-            Windows.Phone.UI.Input.HardwareButtons.BackPressed += (sender, e) =>
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += (s, a) =>
+            {
+                Debug.WriteLine("BackRequested");
+                if (this.RootFrame.CanGoBack)
+                {
+                    this.RootFrame.GoBack();
+                    a.Handled = true;
+                }
+            };
+
+            /*Windows.Phone.UI.Input.HardwareButtons.BackPressed += (sender, e) =>
             {
                 if (this.RootFrame.CanGoBack)
                 {
                     e.Handled = true;
                     this.RootFrame.GoBack();
                 }
-            };
+            };*/
         }
 
         private void SetStatusBarColor()

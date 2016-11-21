@@ -19,7 +19,7 @@ namespace Shopping.DemoApp.Helpers
             {
                 Message = "Time to rate the app! We'll calculate the score based on your smile.",
                 OkText = "LET'S DO IT!",
-                OnConfirm = gotoRating,
+                OnAction = gotoRating,
                 CancelText = "CANCEL",
                 Title = "Rate the app"
             };
@@ -33,7 +33,6 @@ namespace Shopping.DemoApp.Helpers
             {
                 Message = message,
                 OkText = "Ok",
-                OnOk = null,
                 Title = title
             };
 
@@ -45,7 +44,6 @@ namespace Shopping.DemoApp.Helpers
             {
                 Message = message,
                 OkText = "Ok",
-                OnOk = null,
                 Title = title
             };
 

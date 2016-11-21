@@ -36,7 +36,7 @@ namespace Shopping.DemoApp.Droid.Services
 
             gmsAvailabilable = CheckAvailability();
 
-            hub = new NotificationHub(AppSettings.NotificationHubPath, AppSettings.NotificationHubConnectionString, context);
+            //hub = new NotificationHub(AppSettings.NotificationHubPath, AppSettings.NotificationHubConnectionString, context);
         }
 
         public static async Task Register(string[] tags)
